@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Note 😉</title>
+    <style>
+        body{
+            background-color: lightgreen;
+            color: hsl(348, 83%, 47%);;
+            font-family: cursive;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .afterLoad {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="loadingScreen">
+        <h2>Welcome to the miso journal</h2>
+    </div>
+
+    <!-- After loaded screen -->
+     <div class="afterLoad">
+        <p>Welcome back </p>
+     </div>
+    <!-- Js Module  -->
+    <script>
+        let load = document.querySelector('.loadingScreen');
+        let after = document.querySelector('.afterLoad');
+
+        setTimeout(() => {
+            load.style.display = "none";
+            after.style.display = "block";
+        }, 3000);
+    </script>
+</body>
+</html>
