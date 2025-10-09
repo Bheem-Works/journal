@@ -5,31 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal Note 😉</title>
     <style>
-        body{
-            background-color: lightgreen;
-            color: hsl(348, 83%, 47%);;
-            font-family: cursive;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            display: flex;
-        }
+       body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #222;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.masked-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: transparent;
+    background-image: url('https://images.unsplash.com/photo-1732535725600-f805d8b33c9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-size: 200%; /* Enlarged for smooth animation */
+    background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
+}
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
 
         .afterLoad {
             display: none;
+            color:white;
+        }
+
+        .fadeIn{
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity: 0;
+            } 
+            to{
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="loadingScreen">
-        <h2>Welcome to the miso journal</h2>
-    </div>
 
     <!-- After loaded screen -->
-     <div class="afterLoad">
-        <p>Welcome back </p>
-     </div>
+     <div class="loadingScreen">
+        <div class="masked-container">
+            <h1 class="masked-text">Welcome to the miso journal</h1>
+        </div>
+        </div>
+        
+    <!-- Loading screen -->
+    <div class="afterLoad">
+        <h2 class="fadeIn">Yo welcome back Fam;</h2>
+    </div>
+
     <!-- Js Module  -->
     <script>
         let load = document.querySelector('.loadingScreen');
